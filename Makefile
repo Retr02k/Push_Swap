@@ -2,19 +2,18 @@ NAME = push_swap
 
 CC = cc
 FLAGS = -Wall -Werror -Wextra
-LIBFT = imports/libft/Makefile
-PRINTF = imports/printf/Makefile
 
-SRCS = push_swap.c \
-		operations/push.c \
-		operations/swap.c \
-		operations/rotate.c \
-		operations/reverse_rotate.c \
+SRCS = src/push_swap.c \
+		algorithms/sort_radix.c \
 		algorithms/sort_small.c \
-		algorithms/sort_large.c \
-		utils/stack_utils.c \
-		utils/input_validation.c \
-		utils/error_handling.c
+		algorithms/sort_turkish.c \
+		parsing/parse.c \
+		parsing/validate.c \
+		stack/operations.c \
+		stack/stack.c \
+		utils/math.c \
+		utils/memory.c \
+		utils/print.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -26,7 +25,7 @@ $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) imports/libft/libft.a imports/printf/libftprintf.a -o $(NAME)
 
 %.o: %.c
-	$(CC) $(FLAGS) -I imports/libft -I imports/printf -c -o $@ $<
+	$(CC) $(FLAGS) -I./includes -I imports/libft -I imports/printf -c -o $@ $<
 
 clean:
 	$(MAKE) -C imports/libft clean
