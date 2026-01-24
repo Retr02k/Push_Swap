@@ -1,43 +1,47 @@
 NAME = push_swap
 
 CC = cc
-FLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
+INCLUDES = -I ./includes -I imports/printf
 
 SRCS = src/push_swap.c \
-		algorithms/sort_radix.c \
-		algorithms/sort_small.c \
-		algorithms/sort_turkish.c \
-		parsing/parse.c \
-		parsing/validate.c \
-		stack/operations.c \
-		stack/stack.c \
-		utils/math.c \
-		utils/memory.c \
-		utils/print.c
+	src/algorithms/sort_radix.c \
+	src/algorithms/sort_small.c \
+	src/algorithms/sort_turkish.c \
+	src/parsing/parse.c \
+	src/parsing/validate.c \
+	src/stack/operations.c \
+	src/stack/stack.c \
+	src/utils/math.c \
+	src/utils/memory.c \
+	src/utils/print.c \
+	src/utils/ft_atoi.c \
+	src/utils/is_dup.c
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(MAKE) -C imports/libft
 	$(MAKE) -C imports/printf
-	$(CC) $(FLAGS) $(OBJS) imports/libft/libft.a imports/printf/libftprintf.a -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) imports/printf/libftprintf.a -o $(NAME)
 
 %.o: %.c
-	$(CC) $(FLAGS) -I./includes -I imports/libft -I imports/printf -c -o $@ $<
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	$(MAKE) -C imports/libft clean
 	$(MAKE) -C imports/printf clean
-	rm -fr $(OBJS)
-
+	rm -f $(OBJS)
 
 fclean: clean
-	$(MAKE) -C imports/libft fclean
 	$(MAKE) -C imports/printf fclean
-	rm -fr $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+ARGS ?=
+
+.PHONY: all clean fclean re run test
+
+run: $(NAME)
+	./$(NAME) $(ARGS)

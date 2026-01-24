@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   is_dup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 18:25:25 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/11/12 16:55:13 by psilva-p         ###   ########.fr       */
+/*   Created: 2026/01/24 00:13:55 by psilva-p          #+#    #+#             */
+/*   Updated: 2026/01/24 00:29:12 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/push_swap.h"
 
-char	*ft_strdup(const char	*s)
+char	is_dup(char	*s1, char *s2)
 {
-	char	*str;
-	size_t	len;
-	size_t	i;
+	int	i;
 
-	len = ft_strlen(s);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
 	i = 0;
-	while (s[i])
-	{
-		str[i] = s[i];
+	while (s1[i] != s2[i])
 		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	return (s1[i] - s2[i]);
 }

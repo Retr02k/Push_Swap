@@ -12,17 +12,27 @@
 
 #include "push_swap.h"
 
-int main (int	ac, char	**av)
+int	main(int ac, char **av)
 {
-	int i;
-	int gabriel;
+	int	i;
+	int	*values;
 
-	i = 1;
-	while (i < ac)
+	if (ac > 1)
 	{
-		gabriel = ft_atoi(av[i]);
-		ft_printf("%i\n", gabriel);
-		i++;
+		values = malloc(sizeof(int) * (ac - 1));
+		i = 0;
+		while (i < ac - 1)
+		{
+			values[i] = input_validation(av[i + 1]);
+			i++;
+		}
+		if (is_dup(values, ac - 1))
+		{
+			ft_printf("Error\n");
+			free(values);
+			return (1);
+		}
+		free(values);
 	}
 	return (0);
 }
