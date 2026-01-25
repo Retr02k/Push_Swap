@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 17:06:24 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/24 19:58:42 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/11/04 15:34:10 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/11/12 16:54:16 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "libft.h"
 
-#include "push_swap.h"
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	t_list	*temp;
 
-
-char	is_dup(int	*array, int size);
-int		ps_atoi(const char	*str, int *res);
-
-#endif
+	if (!lst || !f)
+		return ;
+	temp = lst;
+	while (temp)
+	{
+		f(temp->content);
+		temp = temp->next;
+	}
+}

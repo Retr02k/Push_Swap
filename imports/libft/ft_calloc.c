@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 17:06:24 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/24 19:58:42 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/10/22 15:08:42 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/11/17 18:36:13 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "libft.h"
 
-#include "push_swap.h"
+void	*ft_calloc(size_t	nmemb, size_t	size)
+{
+	size_t	total;
+	void	*mem;
 
-
-char	is_dup(int	*array, int size);
-int		ps_atoi(const char	*str, int *res);
-
-#endif
+	if (nmemb && size && nmemb > SIZE_MAX / size)
+		return (NULL);
+	total = nmemb * size;
+	mem = malloc(total);
+	if (!mem)
+		return (NULL);
+	ft_bzero(mem, total);
+	return (mem);
+}

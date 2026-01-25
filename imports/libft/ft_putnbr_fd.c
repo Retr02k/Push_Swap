@@ -1,22 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 17:06:24 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/24 19:58:42 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/10/31 14:20:16 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/10/31 18:37:33 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "libft.h"
 
-#include "push_swap.h"
+void	ft_putnbr_fd(int n, int fd)
+{
+	int		i;
+	long	num;
+	char	buffer[12];
 
-
-char	is_dup(int	*array, int size);
-int		ps_atoi(const char	*str, int *res);
-
-#endif
+	if (fd < 0)
+		return ;
+	num = n;
+	if (num < 0)
+	{
+		write(fd, "-", 1);
+		num = -num;
+	}
+	i = 0;
+	if (num == 0)
+		buffer[i++] = '0';
+	while (num > 0)
+	{
+		buffer[i++] = (num % 10) + '0';
+		num /= 10;
+	}
+	while (--i >= 0)
+		write(fd, &buffer[i], 1);
+}

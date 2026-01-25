@@ -6,18 +6,28 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 00:13:55 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/24 00:29:12 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/01/24 17:07:16 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "utils.h"
 
-char	is_dup(char	*s1, char *s2)
+char	is_dup(int	*array, int size)
 {
 	int	i;
+	int j;
 
 	i = 0;
-	while (s1[i] != s2[i])
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (array[i] == array[j])
+				return (1);
+			j++;
+		}
 		i++;
-	return (s1[i] - s2[i]);
+	}
+	return	(0);
 }

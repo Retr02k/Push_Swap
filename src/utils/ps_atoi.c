@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ps_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 19:11:39 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/24 00:15:16 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/01/25 00:16:16 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "utils.h"
 
 char parse_trailing_chars(const char **s)
 {
@@ -43,30 +43,56 @@ char	test_overflow(int sign, int res, int next)
 	return (0);
 }
 
-int	ft_atoi(const char	*str, int *res)
+inline int is_space(char str)
 {
-	int	sign;
-	int	type;
+	return((str  == ' ') || (str >= '\t' && str <= '\r'));
+}
 
-	*res = 0;
-	type = 0;
-	sign = parse_trailing_chars(&str);
+int	ps_atoi(char	**list,  char	*str)
+{
+	long	sig;
+	long	res;
+
+	while(is_space(*str))
+		str++;
+	sig = (*str != '-') - (*str == '-');
+	str += (*str == '+') || (*str == '-');
+	if (*str  != ' ' && !(*str >= '\t' && *str <= '\r'))
+		return (**list = 'E', 0);
 	while (*str >= '0' && *str <= '9')
 	{
-		if (test_overflow(sign, *res, *str - '0'))
-			return (-1);
-		type = 1;
-		*res *= 10;
-		*res += *str - '0';
-		str++;
+		res = (res * 10) + (*str++ - '0');
 	}
-	if (!type)
-		return (-1);
-	while (*str)
-	{
-		if (*str  != ' ' && !(*str >= '\t' && *str <= '\r'))
-			return (-1);
-		str++;
-	}
-	return (0);
+	if (*str && (*str  != ' ' && !(*str >= '\t' && *str <= '\r')))
+		**list = 'E';
+	*list = str;
+	return (res * sig);
 }
+
+// int	ps_atoi(const char	**str, int *res)
+// {
+	// int	sign;
+	// int	type;
+// 
+	// *res = 0;
+	// type = 0;
+	// sign = parse_trailing_chars(&str);
+	// while (*str >= '0' && *str <= '9')
+	// {
+		// if (test_overflow(sign, *res, *str - '0'))
+			// return (-1);
+		// type = 1;
+		// *res *= 10;
+		// *res += *str - '0';
+		// str++;
+	// }
+	// if (!type)
+		// return (-1);
+	// while (*str)
+	// {
+		// if (*str  != ' ' && !(*str >= '\t' && *str <= '\r'))
+			// return (-1);
+		// str++;
+	// }
+	// return (0);
+// }
