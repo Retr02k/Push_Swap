@@ -6,44 +6,26 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 19:11:39 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/25 00:16:16 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/01/26 17:45:53 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include <limits.h>
+#include <stdio.h>
 
-char parse_trailing_chars(const char **s)
-{
-	int sign;
-	const char *str;
+// char	test_overflow(int sign, int res, int next)
+// {
+// 	long aux;
 
-	str = *s;
-	sign = 1;
-	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
-		str++;
-	if (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
-	}
-	*s = str;
-	return(sign);
-}
+// 	aux = ((long)res * 10) + next;
+// 	if(sign == 1 && aux > INT_MAX)
+// 		return (-1);
+// 	else if (sign == -1 && aux > ((long)INT_MIN * -1))
+// 		return (-1);
+// 	return (0);
+// }
 
-char	test_overflow(int sign, int res, int next)
-{
-	long aux;
-
-	aux = ((long)res * 10) + next;
-	if(sign == 1 && aux > INT_MAX)
-		return (-1);
-	else if (sign == -1 && aux > ((long)INT_MIN * -1))
-		return (-1);
-	return (0);
-}
-
-inline int is_space(char str)
+int is_space(char str)
 {
 	return((str  == ' ') || (str >= '\t' && str <= '\r'));
 }
@@ -53,46 +35,38 @@ int	ps_atoi(char	**list,  char	*str)
 	long	sig;
 	long	res;
 
+	res = 0;
 	while(is_space(*str))
 		str++;
 	sig = (*str != '-') - (*str == '-');
 	str += (*str == '+') || (*str == '-');
-	if (*str  != ' ' && !(*str >= '\t' && *str <= '\r'))
+	if (!(*str >= '0' && *str <= '9'))
 		return (**list = 'E', 0);
 	while (*str >= '0' && *str <= '9')
-	{
 		res = (res * 10) + (*str++ - '0');
-	}
-	if (*str && (*str  != ' ' && !(*str >= '\t' && *str <= '\r')))
+	if (res > INT_MAX || (res * sig < INT_MIN))
+		**list = 'E';
+	if (*str && !(is_space(*str)))
 		**list = 'E';
 	*list = str;
 	return (res * sig);
 }
 
-// int	ps_atoi(const char	**str, int *res)
-// {
-	// int	sign;
-	// int	type;
-// 
-	// *res = 0;
-	// type = 0;
-	// sign = parse_trailing_chars(&str);
-	// while (*str >= '0' && *str <= '9')
-	// {
-		// if (test_overflow(sign, *res, *str - '0'))
-			// return (-1);
-		// type = 1;
-		// *res *= 10;
-		// *res += *str - '0';
-		// str++;
-	// }
-	// if (!type)
-		// return (-1);
-	// while (*str)
-	// {
-		// if (*str  != ' ' && !(*str >= '\t' && *str <= '\r'))
-			// return (-1);
-		// str++;
-	// }
-	// return (0);
-// }
+int main(int ac, char **av)
+{
+	int i = 1;
+	char *ptr;
+
+	while (i < ac)
+	{
+		ptr = av[i];
+		while (*ptr)
+		{
+			printf("Parsing: %s -> %i\n", ptr, ps_atoi(&ptr, ptr));
+			while(*ptr && is_space(*ptr))
+				ptr++;
+		}
+		i++;
+	}
+	return 0;
+}
