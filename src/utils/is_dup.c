@@ -6,13 +6,14 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 00:13:55 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/24 17:07:16 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/02/08 22:30:51 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
-
-char	is_dup(int	*array, int size)
+#include "../../includes/utils.h"
+#include <stdio.h>
+// Validate the array built with ps_atoi for duplicates 
+int	is_dup(int	*array, int size)
 {
 	int	i;
 	int j;
@@ -24,10 +25,10 @@ char	is_dup(int	*array, int size)
 		while (j < size)
 		{
 			if (array[i] == array[j])
-				return (1);
+				return (ERR_DUP);
 			j++;
 		}
 		i++;
 	}
-	return	(0);
+	return	(OK);
 }

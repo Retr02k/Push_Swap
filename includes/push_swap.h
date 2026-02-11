@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 18:26:22 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/24 20:13:43 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/02/08 19:21:35 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include "parsing.h"
 # include "stack.h"
 # include "utils.h"
-# include "ft_printf.h"
-# include "libft.h"
+//# include "ft_printf.h"
+//# include "libft.h"
 
 # include <limits.h>
 # include <stdlib.h>
