@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 16:26:27 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/11/12 16:54:07 by psilva-p         ###   ########.fr       */
+/*   Created: 2026/02/11 18:06:27 by psilva-p          #+#    #+#             */
+/*   Updated: 2026/02/11 18:14:19 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "utils.h"
+#include "push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	push_a(t_head *stack_a, t_head *stack_b) // Take the first element at the top of b and put it at the top of a.
 {
-	if (!lst || !del)
-		return ;
-	del(lst->content);
-	free(lst);
+	
 }

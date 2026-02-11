@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   create_node.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/29 17:09:45 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/11/12 16:55:33 by psilva-p         ###   ########.fr       */
+/*   Created: 2026/01/24 19:36:15 by psilva-p          #+#    #+#             */
+/*   Updated: 2026/02/11 21:44:14 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/push_swap.h"
 
-char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
+t_node *create_node(int value, int index)
 {
-	size_t	i;
-	size_t	size;
-	char	*str;
+	t_node	*new_node;
 
-	if (!s || !f)
-		return (NULL);
-	i = 0;
-	size = ft_strlen(s);
-	str = (char *)ft_calloc(size + 1, sizeof(char));
-	if (!str)
-		return (NULL);
-	while (s[i])
-	{
-		str[i] = f(i, s[i]);
-		i++;
-	}
-	return (str);
-}
+	new_node = malloc(sizeof(t_node));
+	if (!new_node)
+		return(NULL);
+	new_node->value = value;
+	new_node->index = index;
+	new_node->next = NULL;
+	new_node->prev = NULL;
+	return (new_node);
+}	

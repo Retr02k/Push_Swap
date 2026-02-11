@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   add_to_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 19:04:58 by psilva-p          #+#    #+#             */
-/*   Updated: 2025/11/15 18:34:55 by psilva-p         ###   ########.fr       */
+/*   Created: 2026/02/11 18:43:11 by psilva-p          #+#    #+#             */
+/*   Updated: 2026/02/11 21:37:12 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/utils.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void add_node_to_stack(t_stack *stack, t_node *new_node)
 {
-	unsigned char	*d;
-	unsigned char	*s;
-
-	d = (unsigned char *) dest;
-	s = (unsigned char *) src;
-	if (d > s)
+	t_node	*last_node;
+	
+	if (stack->head == NULL)
 	{
-		while (n > 0)
-		{
-			d[n - 1] = s[n - 1];
-			n--;
-		}
+		new_node->next = new_node;
+		new_node->prev = new_node;
+		stack->head = new_node;
+		stack->size = 1;
 	}
 	else
-		ft_memcpy(dest, src, n);
-	return (dest);
+	{
+		last_node = stack->head->prev;
+		new_node->next = stack->head;
+		new_node->prev = last_node;
+		last_node->next = new_node;
+		stack->head->prev = new_node;
+		stack->size++;
+	}
 }

@@ -6,50 +6,51 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:49:41 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/01/24 23:16:10 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/02/11 21:30:42 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
-#include "push_swap.h"
+#include "../../includes/stack.h"
+#include "../../includes/push_swap.h"
+#include "../../includes/utils.h"
 
-t_stack *stack_init(int *values, int size)	// Initializes the stack with he parsed values
+t_stack *stack_a_init(int ac, char **av)
 {
-	t_stack	*stack;
+	t_stack *stack_a;
+	t_node	*new_node;
 	int		i;
-	t_node	*node;
+	int		result;
+	t_err	status;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
+	stack_a = malloc(sizeof(t_stack));
+	stack_a->head = NULL;
+	stack_a->size = 0;
+	if (!stack_a)
 		return (NULL);
-	stack->top = NULL;
-	stack->size = 0;
-	if (!values || size <= 0)
-		return(stack);
-	i = size - 1;
-	while (i >= 0)
+	i = 1;
+	while (i < ac)
 	{
-		node = new_node(values[i]);
-		if (!node)
-			return (NULL);
-		node->next = stack->top;
-		stack->top = node;
-		stack->size++;
-		i--;
+		status = ps_atoi(&av[i], av[i], &result);
+		if (status != OK)
+			return (free(stack_a), NULL);
+		else
+		{
+			new_node = create_node(result, 0);
+			add_node_to_stack(stack_a, new_node);
+		}
+		i++;
 	}
-	return (stack);
+	return (stack_a);
 }
 
-void	stack_free(t_stack **s)				// Cleanup and free all memory
+t_stack	*stack_b_init(void)
 {
-	
-}
-void	stack_push(t_stack *s, int value)	// Add element to top element
-{
+	t_stack	*stack_b;
 
-}
-
-int		stack_pop(t_stack *s, int *out)		// Remove and return top element
-{
-	
+	stack_b = malloc(sizeof(t_stack));
+	if (!stack_b)
+		return (NULL);
+	stack_b->head = NULL;
+	stack_b->size = 0;
+	return (stack_b);
 }

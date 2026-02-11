@@ -6,26 +6,13 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 19:11:39 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/02/09 00:05:12 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/02/11 16:56:55 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 #include <stdio.h>
 #include "../../includes/utils.h"
-
-
-// char	test_overflow(int sign, int res, int next)
-// {
-// 	long aux;
-
-// 	aux = ((long)res * 10) + next;
-// 	if(sign == 1 && aux > INT_MAX)
-// 		return (-1);
-// 	else if (sign == -1 && aux > ((long)INT_MIN * -1))
-// 		return (-1);
-// 	return (0);
-// }
 
 int is_space(char str)
 {
@@ -53,28 +40,28 @@ t_err	ps_atoi(char	**list,  char	*str, int	*result)
 	return (OK);
 }
 
-int main(int ac, char **av)
-{
-	int i = 1;
-	int result;
-	char *ptr;
-	t_err status;
+// int main(int ac, char **av)
+// {
+// 	int i = 1;
+// 	int result;
+// 	char *ptr;
+// 	t_err status;
 
-	while (i < ac)
-	{
-		ptr = av[i];
-		while (*ptr)
-		{
-			status = ps_atoi(&ptr, ptr, &result);
-			if (status == OK)
-				printf("Parsed: %d\n", result);
-			else
-			{
-				printf("Error: %d\n", status);
-				break;
-			}
-		}
-		i++;
-	}
-	return 0;
-}
+// 	while (i < ac)
+// 	{
+// 		ptr = av[i];
+// 		while (*ptr)
+// 		{
+// 			status = ps_atoi(&ptr, ptr, &result);
+// 			if (status == OK)
+// 				printf("Parsed: %d\n", result);
+// 			else
+// 			{
+// 				printf("Error: %d\n", status);
+// 				break;
+// 			}
+// 		}
+// 		i++;
+// 	}
+// 	return 0;
+// }
