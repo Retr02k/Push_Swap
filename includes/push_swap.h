@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 18:26:22 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/02/11 21:29:19 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/02/16 17:39:44 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <limits.h>
 # include <stdlib.h>
 
-// Node in the linked list
 typedef struct s_node
 {
 	int	value;

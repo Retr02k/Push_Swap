@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 19:11:39 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/02/16 16:45:55 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/02/16 16:47:24 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ t_err	ps_atoi(char	**list,  char	*str, int	*result)
 	*list = str;
 	*result = res * sig;
 	return (OK);
-
-	ola bom dia
 }
 
 // int main(int ac, char **av)
