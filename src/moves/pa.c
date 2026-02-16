@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 18:06:27 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/02/13 13:40:03 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/02/16 17:42:04 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,5 @@ void	push_a(t_stack *stack_a, t_stack *stack_b)
 		stack_b->size--;
 		stack_a->size++;
 	}
+	ola bom dia
 }
