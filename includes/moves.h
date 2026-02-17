@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:46:55 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/02/17 17:53:14 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/02/17 18:37:47 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	push_b(t_stack	*stack_a, t_stack	*stack_b);
 void	swap_a(t_stack	*stack_a);
 void	swap_b(t_stack *stack_b);
 void	swap_both(t_stack	*stack_a, t_stack	*stack_b);
+void	rotate_a(t_stack	*stack_a);
+void	rotate_b(t_stack	*stack_b);
 
 
 #endif
