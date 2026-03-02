@@ -1,40 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   merge_utils.c                                      :+:      :+:    :+:   */
+/*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 20:01:03 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/02/18 20:04:06 by psilva-p         ###   ########.fr       */
+/*   Created: 2026/03/02 18:59:13 by psilva-p          #+#    #+#             */
+/*   Updated: 2026/03/02 19:10:57 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algorithms.h"
+#include <stdbool.h>
+#include <stdio.h>
 
-int	*create_temp_array(int	size)
+
+void	swap(int *i, int *j)
 {
-	int	*tmp_arr;
+	int temp;
 
-	tmp_arr = malloc(sizeof(int) * size);
-	if (!tmp_arr)
-		return (NULL);
-	return (tmp_arr);
+	temp = *i;
+	*i = *j;
+	*j = temp;
+
 }
 
-void	copy_array(int	*tmp_array, int	*array, int	size)
+void	bubble_sort(int	*array, int	numbers)
 {
-	int	i;
+	int		i;
+	int		j;
+	bool	swapped;
 
 	i = 0;
-	while (i < size)
+	while (i < numbers - 1)
 	{
-		tmp_array[i] = array[i];
+		swapped = false;
+		j = 0;
+		while (j < numbers - i - 1)
+		{
+			if (array[j] > array[j + 1])
+			{
+				swap(&array[j], &array[j + 1]);
+				swapped = true;
+			}
+			j++;
+		}
 		i++;
+		if (swapped == false)
+			break;
 	}
-	
 }
-
-void	merge_sorted_halves(){}
-
-void	copy_remaining(){}
