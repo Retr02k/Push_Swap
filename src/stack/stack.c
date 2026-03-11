@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:49:41 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/02/11 21:30:42 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/10 16:50:57 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "../../includes/push_swap.h"
 #include "../../includes/utils.h"
 
-t_stack *stack_a_init(int ac, char **av)
+t_stack	*stack_a_init(int ac, char **av)
 {
-	t_stack *stack_a;
+	t_stack	*stack_a;
 	t_node	*new_node;
 	int		i;
 	int		result;

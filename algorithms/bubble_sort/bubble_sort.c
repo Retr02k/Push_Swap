@@ -6,25 +6,23 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:13 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/02 19:10:57 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/10 17:58:30 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 #include <stdio.h>
 
-
 void	swap(int *i, int *j)
 {
-	int temp;
+	int	temp;
 
 	temp = *i;
 	*i = *j;
 	*j = temp;
-
 }
 
-void	bubble_sort(int	*array, int	numbers)
+void	bubble_sort(int	*array, int numbers)
 {
 	int		i;
 	int		j;
@@ -46,6 +44,6 @@ void	bubble_sort(int	*array, int	numbers)
 		}
 		i++;
 		if (swapped == false)
-			break;
+			break ;
 	}
 }

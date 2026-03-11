@@ -6,10 +6,9 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 12:55:10 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/03 15:58:55 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/10 17:57:16 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../../includes/push_swap.h"
 #include "../../includes/utils.h"
@@ -18,7 +17,7 @@
 
 int	stack_is_sorted(t_stack	*stack)
 {
-	t_node *current;
+	t_node	*current;
 
 	current = stack->head;
 	if (current == NULL)
@@ -48,7 +47,7 @@ int	count_zero_bits(t_stack *stack_a, int bit_position)
 	return (counter);
 }
 
-unsigned int	bit_counter(unsigned int	index)
+unsigned int	bit_counter(unsigned int index)
 {
 	unsigned int	counter;
 
@@ -78,4 +77,3 @@ void	radix_engine(t_stack *stack_a, t_stack	*stack_b, int original_size, int bit
 		push_a(stack_a, stack_b);
 	bit_position++;
 }
-

@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 19:11:39 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/02/16 16:47:24 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/10 16:54:26 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 #include <stdio.h>
 #include "../../includes/utils.h"
 
-int is_space(char str)
+int	is_space(char str)
 {
-	return((str  == ' ') || (str >= '\t' && str <= '\r'));
+	return ((str == ' ') || (str >= '\t' && str <= '\r'));
 }
-// Parse each argument
-t_err	ps_atoi(char	**list,  char	*str, int	*result)
+
+t_err	ps_atoi(char	**list, char	*str, int	*result)
 {
 	long	sig;
 	long	res;
 
 	res = 0;
-	while(is_space(*str))
+	while (is_space(*str))
 		str++;
 	sig = (*str != '-') - (*str == '-');
 	str += (*str == '+') || (*str == '-');
@@ -39,29 +39,3 @@ t_err	ps_atoi(char	**list,  char	*str, int	*result)
 	*result = res * sig;
 	return (OK);
 }
-
-// int main(int ac, char **av)
-// {
-// 	int i = 1;
-// 	int result;
-// 	char *ptr;
-// 	t_err status;
-
-// 	while (i < ac)
-// 	{
-// 		ptr = av[i];
-// 		while (*ptr)
-// 		{
-// 			status = ps_atoi(&ptr, ptr, &result);
-// 			if (status == OK)
-// 				printf("Parsed: %d\n", result);
-// 			else
-// 			{
-// 				printf("Error: %d\n", status);
-// 				break;
-// 			}
-// 		}
-// 		i++;
-// 	}
-// 	return 0;
-// }

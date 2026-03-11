@@ -6,16 +6,16 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 18:43:11 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/02/13 14:00:08 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/10 16:52:02 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/utils.h"
 
-void add_node_to_stack(t_stack *stack, t_node *new_node)
+void	add_node_to_stack(t_stack *stack, t_node *new_node)
 {
 	t_node	*last_node;
-	
+
 	if (stack->head == NULL)
 	{
 		new_node->next = new_node;

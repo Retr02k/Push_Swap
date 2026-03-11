@@ -1,27 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_node.c                                      :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 19:36:15 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/10 16:52:29 by psilva-p         ###   ########.fr       */
+/*   Created: 2025/11/12 17:04:23 by psilva-p          #+#    #+#             */
+/*   Updated: 2025/12/05 16:05:55 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "ft_printf.h"
 
-t_node	*create_node(int value, int index)
+int	ft_printf_rules(const char flag, va_list arg);
+
+int	ft_printf(const char *s, ...)
 {
-	t_node	*new_node;
+	int		i;
+	int		print;
+	va_list	arg;
 
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		return (NULL);
-	new_node->value = value;
-	new_node->index = index;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	return (new_node);
+	va_start(arg, s);
+	i = 0;
+	print = 0;
+	if (!s)
+		return (-1);
+	while (s[i])
+	{
+		if (s[i] == '%' && s[i + 1])
+		{
+			print += ft_printf_rules(s[i + 1], arg);
+			i++;
+		}
+		else
+		{
+			write(1, &s[i], 1);
+			print++;
+		}
+		i++;
+	}
+	va_end(arg);
+	return (print);
 }

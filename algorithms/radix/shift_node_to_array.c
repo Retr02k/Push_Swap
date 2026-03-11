@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 15:22:34 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/02 19:50:42 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/10 17:57:39 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	check_index_in_values(t_stack *stack_a)
 			if (current->value == array[i])
 			{
 				current->index = i;
-				break;
+				break ;
 			}
 			i++;
 		}
@@ -59,25 +59,3 @@ void	check_index_in_values(t_stack *stack_a)
 	}
 	free(array);
 }
-
-
-
-
-
-
-
-
-
-
-// int main()
-// {
-// 	t_stack a = {NULL, 2};
-// 	t_node *b = create_node(3, 0);
-// 	t_node *c = create_node(10, 0);
-// 	add_node_to_stack(&a, b);
-// 	add_node_to_stack(&a, c);
-
-// 	int *gabriel = extract_values(&a);
-// 	printf("%i\n", gabriel[0]);
-// 	printf("%i\n", gabriel[1]);
-// }

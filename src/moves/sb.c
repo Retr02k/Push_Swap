@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:37:38 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/02/17 19:06:03 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/10 16:55:01 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	swap_b(t_stack *stack_b)
 	first_node->prev = second_node;
 	last_node->next = second_node;
 	third_node->prev = first_node;
-	stack_b->head = second_node;	
+	stack_b->head = second_node;
 }

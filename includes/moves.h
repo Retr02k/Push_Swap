@@ -6,16 +6,15 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:46:55 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/02/17 19:04:34 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/10 16:58:49 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MOVES_H
-#define	MOVES_H
+# define MOVES_H
 
-#include "push_swap.h"
-#include "utils.h"
-
+# include "push_swap.h"
+# include "utils.h"
 
 void	push_a(t_stack *stack_a, t_stack *stack_b);
 void	push_b(t_stack	*stack_a, t_stack	*stack_b);
@@ -24,8 +23,8 @@ void	swap_b(t_stack *stack_b);
 void	swap_both(t_stack	*stack_a, t_stack	*stack_b);
 void	rotate_a(t_stack	*stack_a);
 void	rotate_b(t_stack	*stack_b);
+void	rotate_both(t_stack	*stack_a, t_stack	*stack_b);
 void	reverse_rotate_a(t_stack	*stack_a);
 void	reverse_rotate_b(t_stack	*stack_b);
-
 
 #endif
