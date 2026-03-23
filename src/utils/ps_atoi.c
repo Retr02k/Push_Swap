@@ -6,13 +6,13 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 19:11:39 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/10 16:54:26 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/20 10:53:46 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 #include <stdio.h>
-#include "../../includes/utils.h"
+#include "utils.h"
 
 int	is_space(char str)
 {

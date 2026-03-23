@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 18:26:22 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/10 17:01:51 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/20 11:03:29 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 
 typedef struct s_node
 {
-	int		value;
-	int		index;
-	t_node	*next;
-	t_node	*prev;
-}			t_node;
+	int				value;
+	int				index;
+	struct s_node	*next;
+	struct s_node	*prev;
+}					t_node;
 
 typedef struct s_stack
 {

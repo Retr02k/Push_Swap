@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:13 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/10 17:58:30 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/20 15:28:21 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	bubble_sort(int	*array, int numbers)
 			}
 			j++;
 		}
-		i++;
 		if (swapped == false)
 			break ;
+		i++;
 	}
 }

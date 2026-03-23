@@ -1,43 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   push_to_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 18:06:27 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/02/17 19:03:01 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/20 15:20:27 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include "push_swap.h"
+#include <unistd.h>
 
-void	push_a(t_stack *stack_a, t_stack *stack_b)
+static int	push_to_stack(t_stack *dest, t_stack *src)
 {
-	t_node	*first_node;
-	t_node	*second_node;
-	t_node	*last_node;
+	t_node	*node;
 
-	if (stack_b->head == NULL)
-		return ;
-	first_node = stack_b->head;
-	if (first_node->next == first_node)
-	{
-		stack_b->head = NULL;
-		add_node_to_stack(stack_a, first_node);
-		stack_b->size--;
-		stack_a->size++;
-	}
+	if (src->head == NULL)
+		return (0);
+	node = src->head;
+	if (node->next == node)
+		src->head = NULL;
 	else
 	{
-		second_node = stack_b->head->next;
-		last_node = stack_b->head->prev;
-		second_node->prev = last_node;
-		last_node->next = second_node;
-		stack_b->head = second_node;
-		add_node_to_stack(stack_a, first_node);
-		stack_b->size--;
-		stack_a->size++;
+		node->prev->next = node->next;
+		node->next->prev = node->prev;
+		src->head = node->next;
 	}
+	add_node_to_stack(dest, node);
+	src->size--;
+	return (1);
+}
+
+void push_a(t_stack *stack_a, t_stack *stack_b)
+{
+	if (push_to_stack(stack_a, stack_b))
+		write(1, "pa\n", 3);
+}
+
+void push_b(t_stack *stack_a, t_stack *stack_b)
+{
+	if (push_to_stack(stack_b, stack_a))
+		write(1, "pb\n", 3);
 }

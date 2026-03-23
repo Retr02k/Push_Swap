@@ -6,13 +6,13 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:49:41 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/10 16:50:57 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/20 10:53:55 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/stack.h"
-#include "../../includes/push_swap.h"
-#include "../../includes/utils.h"
+#include "stack.h"
+#include "push_swap.h"
+#include "utils.h"
 
 t_stack	*stack_a_init(int ac, char **av)
 {

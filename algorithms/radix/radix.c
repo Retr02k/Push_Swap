@@ -6,14 +6,14 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 19:48:32 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/03 15:55:59 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/20 15:25:49 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
-#include "../../includes/utils.h"
-#include "../../includes/algorithms.h"
-#include "../../includes/moves.h"
+#include "push_swap.h"
+#include "utils.h"
+#include "algorithms.h"
+#include "moves.h"
 
 int	handle_special_bit_cases(t_stack *stack_a, t_stack *stack_b, int zeros)
 {
@@ -32,7 +32,7 @@ int	handle_special_bit_cases(t_stack *stack_a, t_stack *stack_b, int zeros)
 
 void	radix(t_stack *stack_a, t_stack *stack_b)
 {
-	int				bit;
+	unsigned int	bit;
 	int				zeros;
 	unsigned int	max_bits;
 

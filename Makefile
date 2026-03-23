@@ -3,13 +3,21 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g -I./includes
 
-SRCS = src/push_swap.c \
-	src/algorithms/sort_radix.c \
-	src/algorithms/sort_small.c \
-	src/algorithms/sort_turkish.c \
-	src/parsing/parse.c \
-	src/parsing/validate.c \
-	src/stack/operations.c \
+SRCS = algorithms/bubble_sort/bubble_sort.c \
+	algorithms/radix/radix_utils.c \
+	algorithms/radix/radix.c \
+	algorithms/radix/shift_node_to_array.c \
+	src/moves/push_to_stack.c \
+	src/moves/ra.c \
+	src/moves/rb.c \
+	src/moves/rr.c \
+	src/moves/rra.c \
+	src/moves/rrb.c \
+	src/moves/rrr.c \
+	src/moves/sa.c \
+	src/moves/sb.c \
+	src/moves/ss.c \
+	src/push_swap.c \
 	src/stack/stack.c \
 	src/utils/add_to_stack.c \
 	src/utils/create_node.c \

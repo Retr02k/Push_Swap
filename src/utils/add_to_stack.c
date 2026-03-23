@@ -6,11 +6,11 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 18:43:11 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/10 16:52:02 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/20 10:53:00 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/utils.h"
+#include "utils.h"
 
 void	add_node_to_stack(t_stack *stack, t_node *new_node)
 {
