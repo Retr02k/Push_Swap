@@ -74,7 +74,12 @@ int	main(int ac, char **av)
 		return (error_exit(stack_a, stack_b));
 	check_index_in_values(stack_a);
 	if (!stack_is_sorted(stack_a))
-		radix(stack_a, stack_b);
+	{
+		if (stack_a->size <= 5)
+			sort_small(stack_a, stack_b);
+		else
+			radix(stack_a, stack_b);
+	}
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);

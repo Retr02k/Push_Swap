@@ -22,7 +22,9 @@ SRCS = algorithms/bubble_sort/bubble_sort.c \
 	src/utils/add_to_stack.c \
 	src/utils/create_node.c \
 	src/utils/is_dup.c \
-	src/utils/ps_atoi.c 
+	src/utils/ps_atoi.c \
+	src/utils/sort_small.c \
+	src/utils/sort_small_helpers.c
 
 OBJS = $(SRCS:.c=.o)
 
