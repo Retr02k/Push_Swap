@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:46:55 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/23 18:24:31 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:53:18 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void	rotate_b(t_stack	*stack_b);
 void	rotate_both(t_stack	*stack_a, t_stack	*stack_b);
 void	reverse_rotate_a(t_stack	*stack_a);
 void	reverse_rotate_b(t_stack	*stack_b);
+void	reverse_rotate_both(t_stack	*stack_a, t_stack	*stack_b);
 
 #endif

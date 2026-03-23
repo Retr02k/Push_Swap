@@ -12,10 +12,12 @@
 
 #include "utils.h"
 #include "push_swap.h"
+#include <unistd.h>
 
 void	rotate_b(t_stack	*stack_b)
 {
 	if (stack_b->head == NULL || stack_b->head->next == stack_b->head)
 		return ;
 	stack_b->head = stack_b->head->next;
+	write(1, "rb\n", 3);
 }

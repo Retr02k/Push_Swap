@@ -12,6 +12,7 @@
 
 #include "utils.h"
 #include "push_swap.h"
+#include <unistd.h>
 
 void	swap_b(t_stack *stack_b)
 {
@@ -24,6 +25,12 @@ void	swap_b(t_stack *stack_b)
 		return ;
 	first_node = stack_b->head;
 	second_node = first_node->next;
+	if (second_node->next == first_node)
+	{
+		stack_b->head = second_node;
+		write(1, "sb\n", 3);
+		return ;
+	}
 	third_node = second_node->next;
 	last_node = first_node->prev;
 	second_node->prev = last_node;
@@ -33,4 +40,5 @@ void	swap_b(t_stack *stack_b)
 	last_node->next = second_node;
 	third_node->prev = first_node;
 	stack_b->head = second_node;
+	write(1, "sb\n", 3);
 }

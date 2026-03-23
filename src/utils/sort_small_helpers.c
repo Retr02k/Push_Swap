@@ -6,24 +6,21 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 18:22:23 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/23 18:23:01 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:54:03 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algorithms.h"
 #include "moves.h"
-#include <unistd.h>
 
 void	op_sa(t_stack *stack_a)
 {
 	swap_a(stack_a);
-	write(1, "sa\n", 3);
 }
 
 void	op_rra(t_stack *stack_a)
 {
 	reverse_rotate_a(stack_a);
-	write(1, "rra\n", 4);
 }
 
 static int	find_smallest_pos(t_stack *stack)
