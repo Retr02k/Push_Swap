@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 12:55:10 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/20 11:14:17 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:25:03 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,11 @@ unsigned int	bit_counter(unsigned int index)
 	return (counter);
 }
 
-void	radix_engine(t_stack *stack_a, t_stack	*stack_b, int original_size, int bit_position)
+void	radix_engine(t_stack *stack_a,
+			t_stack	*stack_b,
+			int original_size,
+			int bit_position
+			)
 {
 	int	bits_processed;
 

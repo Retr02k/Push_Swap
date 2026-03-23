@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 18:06:27 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/20 15:20:27 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:23:25 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ static int	push_to_stack(t_stack *dest, t_stack *src)
 	return (1);
 }
 
-void push_a(t_stack *stack_a, t_stack *stack_b)
+void	push_a(t_stack *stack_a, t_stack *stack_b)
 {
 	if (push_to_stack(stack_a, stack_b))
 		write(1, "pa\n", 3);
 }
 
-void push_b(t_stack *stack_a, t_stack *stack_b)
+void	push_b(t_stack *stack_a, t_stack *stack_b)
 {
 	if (push_to_stack(stack_b, stack_a))
 		write(1, "pb\n", 3);
