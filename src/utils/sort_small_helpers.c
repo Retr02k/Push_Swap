@@ -6,22 +6,12 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 18:22:23 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/23 18:54:03 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/24 16:06:18 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algorithms.h"
 #include "moves.h"
-
-void	op_sa(t_stack *stack_a)
-{
-	swap_a(stack_a);
-}
-
-void	op_rra(t_stack *stack_a)
-{
-	reverse_rotate_a(stack_a);
-}
 
 static int	find_smallest_pos(t_stack *stack)
 {
@@ -63,7 +53,7 @@ void	push_smallest_to_b(t_stack *stack_a, t_stack *stack_b)
 	{
 		i = 0;
 		while (i++ < (stack_a->size - pos))
-			op_rra(stack_a);
+			reverse_rotate_a(stack_a);
 	}
 	push_b(stack_a, stack_b);
 }

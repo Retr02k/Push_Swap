@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 12:55:10 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/24 13:11:07 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/24 16:07:20 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,6 @@ int	stack_is_sorted(t_stack	*stack)
 		idx++;
 	}
 	return (1);
-}
-
-int	count_zero_bits(t_stack *stack_a, int bit_position)
-{
-	t_node	*current;
-	int		counter;
-	int		i;
-
-	counter = 0;
-	current = stack_a->head;
-	i = 0;
-	while (i < stack_a->size)
-	{
-		if (!((current->index >> bit_position) & 1))
-			counter++;
-		current = current->next;
-		i++;
-	}
-	return (counter);
 }
 
 unsigned int	count_bits(unsigned int index)
