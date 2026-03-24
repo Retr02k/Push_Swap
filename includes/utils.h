@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:06:24 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/24 13:11:24 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/24 18:38:21 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef enum error_type
 }	t_err;
 
 int		is_dup(int	*array, int size);
+int		is_space(char str);
 t_err	ps_atoi(char	**next_ptr, char	*str, int *result);
 t_node	*create_node(int value, int index);
 void	add_node_to_stack(t_stack *stack, t_node *new_node);
