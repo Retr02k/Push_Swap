@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:49:41 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/23 18:54:06 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:11:43 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,33 @@ static void	free_stack_nodes(t_stack *stack)
 	}
 }
 
+static t_stack	*cleanup_and_null(t_stack *stack_a)
+{
+	free_stack_nodes(stack_a);
+	free(stack_a);
+	return (NULL);
+}
+
+static int	parse_arg_and_push(t_stack *stack_a, char **arg)
+{
+	t_node	*new_node;
+	int		value;
+	t_err	status;
+
+	status = ps_atoi(arg, *arg, &value);
+	if (status != OK || **arg != '\0')
+		return (1);
+	new_node = create_node(value, 0);
+	if (!new_node)
+		return (1);
+	add_node_to_stack(stack_a, new_node);
+	return (0);
+}
+
 t_stack	*stack_a_init(int ac, char **av)
 {
 	t_stack	*stack_a;
-	t_node	*new_node;
 	int		i;
-	int		result;
-	t_err	status;
 
 	stack_a = malloc(sizeof(t_stack));
 	if (!stack_a)
@@ -49,22 +69,8 @@ t_stack	*stack_a_init(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
-		status = ps_atoi(&av[i], av[i], &result);
-		if (status != OK)
-		{
-			free_stack_nodes(stack_a);
-			return (free(stack_a), NULL);
-		}
-		else
-		{
-			new_node = create_node(result, 0);
-			if (!new_node)
-			{
-				free_stack_nodes(stack_a);
-				return (free(stack_a), NULL);
-			}
-			add_node_to_stack(stack_a, new_node);
-		}
+		if (parse_arg_and_push(stack_a, &av[i]))
+			return (cleanup_and_null(stack_a));
 		i++;
 	}
 	return (stack_a);

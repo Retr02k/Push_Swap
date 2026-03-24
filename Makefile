@@ -17,14 +17,14 @@ SRCS = algorithms/bubble_sort/bubble_sort.c \
 	src/moves/sa.c \
 	src/moves/sb.c \
 	src/moves/ss.c \
-	src/push_swap.c \
 	src/stack/stack.c \
 	src/utils/add_to_stack.c \
 	src/utils/create_node.c \
 	src/utils/is_dup.c \
 	src/utils/ps_atoi.c \
+	src/utils/sort_small_helpers.c \
 	src/utils/sort_small.c \
-	src/utils/sort_small_helpers.c
+	src/push_swap.c 
 
 OBJS = $(SRCS:.c=.o)
 

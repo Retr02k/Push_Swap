@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 12:55:10 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/23 18:25:03 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:11:07 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@
 int	stack_is_sorted(t_stack	*stack)
 {
 	t_node	*current;
-	int		count;
+	int		idx;
 
 	current = stack->head;
 	if (current == NULL || stack->size < 2)
 		return (1);
-	count = 0;
-	while (count < stack->size - 1)
+	idx = 0;
+	while (idx < stack->size - 1)
 	{
 		if (current->index > current->next->index)
 			return (0);
 		current = current->next;
-		count++;
+		idx++;
 	}
 	return (1);
 }
@@ -53,7 +53,7 @@ int	count_zero_bits(t_stack *stack_a, int bit_position)
 	return (counter);
 }
 
-unsigned int	bit_counter(unsigned int index)
+unsigned int	count_bits(unsigned int index)
 {
 	unsigned int	counter;
 
@@ -66,7 +66,7 @@ unsigned int	bit_counter(unsigned int index)
 	return (counter);
 }
 
-void	radix_engine(t_stack *stack_a,
+void	radix_pass(t_stack *stack_a,
 			t_stack	*stack_b,
 			int original_size,
 			int bit_position
@@ -84,5 +84,4 @@ void	radix_engine(t_stack *stack_a,
 	}
 	while (stack_b->size > 0)
 		push_a(stack_a, stack_b);
-	bit_position++;
 }

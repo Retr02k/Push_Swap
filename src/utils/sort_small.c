@@ -6,13 +6,12 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 18:22:09 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/23 18:22:40 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:03:24 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algorithms.h"
 #include "moves.h"
-#include <unistd.h>
 
 static void	sort_three(t_stack *stack_a)
 {

@@ -6,12 +6,11 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:13 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/20 15:28:21 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:02:57 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
-#include <stdio.h>
 
 void	swap(int *i, int *j)
 {

@@ -6,7 +6,7 @@
 /*   By: psilva-p <psilva-p@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 17:53:14 by psilva-p          #+#    #+#             */
-/*   Updated: 2026/03/23 18:24:18 by psilva-p         ###   ########.fr       */
+/*   Updated: 2026/03/24 13:11:29 by psilva-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void			swap(int *i, int *j);
 void			bubble_sort(int	*array, int numbers);
 int				stack_is_sorted(t_stack	*stack);
 int				count_zero_bits(t_stack *stack_a, int bit_position);
-unsigned int	bit_counter(unsigned int index);
-void			radix_engine(t_stack *stack_a,
+unsigned int	count_bits(unsigned int index);
+void			radix_pass(t_stack *stack_a,
 					t_stack	*stack_b,
 					int original_size,
 					int bit_position
@@ -31,9 +31,9 @@ void			sort_small(t_stack *stack_a, t_stack *stack_b);
 void			op_sa(t_stack *stack_a);
 void			op_rra(t_stack *stack_a);
 void			push_smallest_to_b(t_stack *stack_a, t_stack *stack_b);
-int				handle_special_bit_cases(t_stack *stack_a,
+int				handle_uniform_bit_pass(t_stack *stack_a,
 					t_stack *stack_b,
-					int zeros
+					int zero_count
 					);
 void			check_index_in_values(t_stack *stack_a);
 
