@@ -1,7 +1,8 @@
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g -I./includes
+CFLAGS = -Wall -Werror -Wextra -I./includes
+DEBUG_FLAGS = -fsanitize=address -g
 
 SRCS = algorithms/bubble_sort/bubble_sort.c \
 	algorithms/radix/radix_utils.c \
@@ -33,8 +34,11 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
+debug: CFLAGS += $(DEBUG_FLAGS)
+debug: re
+
 %.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
@@ -46,7 +50,7 @@ re: fclean all
 
 ARGS ?=
 
-.PHONY: all clean fclean re run test
-
 run: $(NAME)
 	./$(NAME) $(ARGS)
+
+.PHONY: all clean fclean re debug run
